@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crypto Wallet Address Page</title>
+<link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    
+<div class = "list">
+    <h1>Thanks for your kind consideration.</h1>
+<div class="container">
+  <h2>USDT Address (BSC BNB Smart Chain)</h2>
+  <p id="walletAddress">0x552ae5f32a3e1ab3cc5230abf24df09cfcd0208d</p>
+  <button onclick="copyToClipboard()">Copy Address</button>
+</div>
+
+<div class="container">
+    <h2>Bitcoin Address (BSC BNB Smart Chain)</h2>
+    <p id="walletAddress">0x552ae5f32a3e1ab3cc5230abf24df09cfcd0208d</p>
+    <button onclick="copyToClipboard()">Copy Address</button>
+</div>
+
+<div class="container">
+    <h2>Ethereum Address (BSC BNB Smart Chain)</h2>
+    <p id="walletAddress">0x552ae5f32a3e1ab3cc5230abf24df09cfcd0208d</p>
+    <button onclick="copyToClipboard()">Copy Address</button>
+</div>
+</div>
+
+<script>
+function copyToClipboard() {
+  var copyText = document.getElementById("walletAddress");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  document.execCommand("copy");
+  alert("Copied the address: " + copyText.value);
+}
+</script>
+</body>
+</html>
