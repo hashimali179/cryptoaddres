@@ -1,42 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Crypto Wallet Address Page</title>
-<link rel="stylesheet" href="css/index.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Crypto Wallet</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            color: #666;
+            margin-top: 20px;
+            font-size: 18px;
+        }
+        .wallet-address {
+            font-size: 20px;
+            font-weight: bold;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+            margin-top: 20px;
+            display: inline-block;
+        }
+        .copy-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            font-size: 16px;
+        }
+        .copy-button:hover {
+            background-color: #45a049;
+        }
+    </style>
 </head>
 <body>
-    
-<div class = "list">
-    <h1>Thanks for your kind consideration.</h1>
-<div class="container">
-  <h2>USDT Address (BSC BNB Smart Chain)</h2>
-  <p id="walletAddress">0x552ae5f32a3e1ab3cc5230abf24df09cfcd0208d</p>
-  <button onclick="copyToClipboard()">Copy Address</button>
-</div>
+    <div class="container">
+        <h1>Donate USDT, Bitcoin, Ethereum, Matic, Cardano, XRP</h1>
+        <p>BSC (BNB Smart  Chain)</p>
+        <div class="wallet-address" id="walletAddress">
+            <!-- Replace the line below with your actual wallet address -->
+            <p>0x552ae5f32a3e1ab3cc5230abf24df09cfcd0208d</p>
+        </div>
+        <button class="copy-button" onclick="copyAddress()">Copy Address</button>
+    </div>
 
-<div class="container">
-    <h2>Bitcoin Address (BSC BNB Smart Chain)</h2>
-    <p id="walletAddress">0x552ae5f32a3e1ab3cc5230abf24df09cfcd0208d</p>
-    <button onclick="copyToClipboard()">Copy Address</button>
-</div>
-
-<div class="container">
-    <h2>Ethereum Address (BSC BNB Smart Chain)</h2>
-    <p id="walletAddress">0x552ae5f32a3e1ab3cc5230abf24df09cfcd0208d</p>
-    <button onclick="copyToClipboard()">Copy Address</button>
-</div>
-</div>
-
-<script>
-function copyToClipboard() {
-  var copyText = document.getElementById("walletAddress");
-  copyText.select();
-  copyText.setSelectionRange(0, 99999);
-  document.execCommand("copy");
-  alert("Copied the address: " + copyText.value);
-}
-</script>
+    <script>
+        function copyAddress() {
+            var walletAddress = document.getElementById("walletAddress");
+            var range = document.createRange();
+            range.selectNode(walletAddress);
+            window.getSelection().removeAllRanges();
+            window.getSelection().addRange(range);
+            document.execCommand("copy");
+            window.getSelection().removeAllRanges();
+            alert("Address copied to clipboard!");
+        }
+    </script>
 </body>
 </html>
